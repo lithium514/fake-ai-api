@@ -1,0 +1,13 @@
+name = "fake-ai-api"
+main = "worker.js"
+compatibility_date = "2026-09-22"
+
+# 仓库里的文本资源打包进 Worker（Node 侧仍用 fs 读，见 lib/runtime-node.js）
+[[rules]]
+type = "Text"
+globs = ["**/*.txt", "**/*.html", "**/*.xml"]
+
+# 可选：不想把 Key 写死在 config.js 的话，用 wrangler secret put FAKE_API_KEY，
+# 或在这里配置：
+# [vars]
+# FAKE_API_KEY = "sk-..."
